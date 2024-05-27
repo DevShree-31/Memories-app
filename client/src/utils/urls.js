@@ -1,0 +1,1 @@
+export const IMAGE_URL="https://imgs.search.brave.com/G-MiVrfUrbZC8DmDs-yyNMqnk46DQqTpKlb1JTzPl4U/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTgz/MjQzNjY1L3Bob3Rv/L2VsZGVybHktd29t/YW4taG9sZGluZy1h/LWNvbGxlY3Rpb24t/b2Ytb2xkLXBob3Rv/Z3JhcGhzLmpwZz9z/PTYxMng2MTImdz0w/Jms9MjAmYz1TRXpj/SUJKenZORTZVRjhW/UTdId3FBTzgyd2Zy/MFh5b1RyN0RoS1pf/dHA0PQ"
