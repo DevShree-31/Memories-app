@@ -1,18 +1,26 @@
 import { makeStyles } from '@mui/styles';
+import { spacing } from '@mui/system';
+export default makeStyles((theme) => ({
+  root: {
+    '& .MuiTextField-root': {
+      width: '32ch',
+      margin:'4px',
+    },
+    paper: {
+      padding: spacing(2),
+    },
+    '& .MuiButton-root': {
+      width:'32ch',
+      margin:'2px'
+    }
+  },
 
-export default makeStyles(() => ({
-  appBar: {
-    borderRadius: 15,
-    margin: '30px 0',
+  form: {
     display: 'flex',
-    flexDirection: 'row',
+    flexWrap: 'wrap',
     justifyContent: 'center',
-    alignItems: 'center',
   },
-  heading: {
-    color: 'rgba(0,183,255, 1)',
-  },
-  image: {
-    marginLeft: '15px',
+  fileInput: {
+    margin: '10px',
   },
 }));
