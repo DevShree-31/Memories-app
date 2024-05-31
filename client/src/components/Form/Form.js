@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { createPost,updatePost } from '../actions/post';
 const Form = ({currentId,setCurrentId}) => {
   const [postData, setPostData] = useState({ title: '', message: '',  selectedFile: '' });
-
+  const user=JSON.parse(localStorage.getItem('profile'))
   const dispatch = useDispatch();
   const classes = useStyles();
   const post = useSelector((state) => (currentId ? state.posts.find((message) => message._id === currentId) : null));
@@ -23,9 +23,14 @@ const Form = ({currentId,setCurrentId}) => {
       dispatch(updatePost(currentId, postData));
     } else {
       dispatch(createPost(postData));
-      
     }
     clear()
+  }
+  if(!user?.result?.name){
+    return (<Paper>
+      <Typography variant="h6" align="center">Please Sign in to create your own memories</Typography>
+    </Paper>
+    )
   }
   return (
     <div>
@@ -33,7 +38,6 @@ const Form = ({currentId,setCurrentId}) => {
       <Paper className={classes.paper}>
       <form autoComplete="off" noValidate className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}>
         <Typography variant="h6" > {currentId?`Editing ${post.title}`: 'Creating a Post'}</Typography>
-
         <TextField name="title" variant="outlined" label="Title"   fullWidth value={postData.title} onChange={(e) => setPostData({ ...postData, title: e.target.value })} />
         <TextField name="message" variant="outlined" label="Message" fullWidth multiline rows={4} value={postData.message} onChange={(e) => setPostData({ ...postData, message: e.target.value })} /> 
         <div className={classes.fileInput}><FileBase type="file" multiple={false} onDone={({ base64 }) => setPostData({ ...postData, selectedFile: base64 })} /></div>
