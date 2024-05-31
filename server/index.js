@@ -2,7 +2,8 @@ import express from 'express'
 import bodyParser from 'body-parser'
 import mongoose from 'mongoose'
 import cors from 'cors'
-import router from './routes/posts.js'
+import postRoutes from './routes/posts.js'
+import userRoutes from './routes/user.js'
 import dotenv from 'dotenv'
 const app=express()
 dotenv.config()
@@ -13,8 +14,8 @@ const corsOptions = {
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS']
 };
 app.use(cors(corsOptions));
-app.use('/posts',router)
-
+app.use('/posts',postRoutes)
+app.use('/user',userRoutes)
 
 //will use cloud mongoDB 
 // const CONNECTION_URL="mongodb+srv://shreyansh:Shreyansh$123@cluster0.ap0tnyi.mongodb.net/"
