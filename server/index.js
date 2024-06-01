@@ -17,10 +17,12 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use('/posts',postRoutes)
 app.use('/user',userRoutes)
-
+app.get('/',(req,res)=>{
+    res.json("Hello")
+})
 //will use cloud mongoDB 
 // const CONNECTION_URL="mongodb+srv://shreyansh:Shreyansh$123@cluster0.ap0tnyi.mongodb.net/"
 const PORT=process.env.PORT ||5000;
-mongoose.connect(process.env.CONNECTION_URL).then(
+mongoose.connect('mongodb+srv://shreyansh:Shreyansh$123@cluster0.ap0tnyi.mongodb.net/').then(
     ()=>app.listen(PORT,()=>console.log(`Connection established at port ${PORT}`)))
     .catch((error)=>console.log(error.message));
