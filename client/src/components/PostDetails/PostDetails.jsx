@@ -15,20 +15,19 @@ const Post = () => {
     useEffect(() => {
         dispatch(getPost(id));
     }, [id]);
-    if (!post) return null;
     return (
         <Paper style={{ padding: '20px', borderRadius: '15px' }} elevation={6}>
             <div className={classes.card}>
                 <div className={classes.section}>
                 <div >
-                    <Typography variant="h3" component="h2">Title:{post.title}</Typography>
-                    <Typography gutterBottom variant="body1" component="p" >{post.message}</Typography>
-                    <Typography variant="body1">Created:{moment(post.createdAt).fromNow()}</Typography>
+                    <Typography variant="h3" component="h2">Title:{post?.title}</Typography>
+                    <Typography gutterBottom variant="body1" component="p" >{post?.message}</Typography>
+                    <Typography variant="body1">Created:{moment(post?.createdAt).fromNow()}</Typography>
                 </div>
                 </div>
                 <div className={classes.imagediv}>
                 <div>
-                    <img className={classes.media} src={post.selectedFile || 'https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png'} alt={post.title} />
+                    <img className={classes.media} src={post?.selectedFile || 'https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png'} alt={post?.title} />
                 </div>
                 </div>
             </div>

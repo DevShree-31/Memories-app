@@ -8,8 +8,11 @@ const Posts = ({setCurrentId}) => {
   const email=user?.result?.email
   const posts=useSelector((state)=>state.posts);
   const classes=useStyle();
-const postsArray = Object.values(posts);
-  const relPost=postsArray?.filter((post)=>post.email==email)
+  let postsArray=[]
+  if(posts!=null ||posts!=undefined){
+    postsArray = Object?.values(posts);
+  }
+  const relPost=postsArray?.filter((post)=>post?.email==email)
 
   return (
     relPost.length<0?<CircularProgress/>:(
