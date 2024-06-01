@@ -7,6 +7,7 @@ export const signin=(formData,navigate)=>async(dispatch)=>{
         navigate('/')
     }
     catch(error){
+        console.log("Invalid Password")
         console.log(error)
     }
 }

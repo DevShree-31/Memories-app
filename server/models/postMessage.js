@@ -6,8 +6,9 @@ const postSchema=mongoose.Schema({
     selectedFile:String,
     createdAt:{
         type:Date,
-        default:new Date()
-    }
+        default:Date.now
+    },
+    email:String
 })
 
 

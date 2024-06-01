@@ -4,12 +4,18 @@ import { getPosts } from '../actions/post';
 import {Container,Grow,Grid} from "@mui/material"
 import Posts from '../Posts/Posts';
 import Form from '../Form/Form' 
+import { useNavigate } from 'react-router-dom';
 const Home = () => {
     const [currentId, setCurrentId] = useState(0);
     const dispatch = useDispatch()
+    const navigate=useNavigate()
+    const user=JSON.parse(localStorage.getItem('profile'));
     useEffect(() => {
-        dispatch(getPosts());
-    }, []);
+        if(!user) navigate('/')
+    },[user])
+    useEffect(() => {
+        if(user) dispatch(getPosts());
+    }, [user]);
     return (
         <Grow in>
             <Container>

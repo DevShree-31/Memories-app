@@ -36,6 +36,8 @@ export default makeStyles((theme) => ({
         padding: '0 16px',
     },
     cardActions: {
+        display: 'flex',
+    justifyContent: 'space-between',
         left: '0px',
     },
 }));

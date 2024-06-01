@@ -5,26 +5,29 @@ import useStyles from './styles';
 import { useDispatch, useSelector } from 'react-redux';
 import { createPost,updatePost } from '../actions/post';
 const Form = ({currentId,setCurrentId}) => {
-  const [postData, setPostData] = useState({ title: '', message: '',  selectedFile: '' });
+  const [postData, setPostData] = useState({ title: '', message: '',  selectedFile: '',email:''});
   const user=JSON.parse(localStorage.getItem('profile'))
   const dispatch = useDispatch();
   const classes = useStyles();
   const post = useSelector((state) => (currentId ? state.posts.find((message) => message._id === currentId) : null));
   const clear=()=>{
     setCurrentId(null)
-    setPostData({ title: '', message: '',  selectedFile: '' })
+    setPostData({ title: '', message: '',  selectedFile: '',email:'' })
   }
   useEffect(() => {
     if (post) setPostData(post);
   }, [post]);
   const handleSubmit=(e)=>{
     e.preventDefault();
+    if(user){
+      postData.email=user.result.email
     if (currentId ) {
       dispatch(updatePost(currentId, postData));
     } else {
       dispatch(createPost(postData));
     }
     clear()
+  }
   }
   if(!user?.result?.name){
     return (<Paper>
