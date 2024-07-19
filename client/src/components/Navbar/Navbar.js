@@ -26,7 +26,7 @@ const Navbar = () => {
     <AppBar className={classes.appBar} position="static" color="inherit">
       <div className={classes.flexAll}>
       <div className={classes.brandContainer}>
-        <Typography component={Link} to="/" className={classes.heading} variant="h2" >Memories</Typography>
+        <Typography component={Link} to="/" className={classes.heading} variant="h2" >Yaadein</Typography>
         <img className={classes.image} src={IMAGE_URL} alt="icon" height="60" />
       </div>
       <Toolbar className={classes.toolbar}>
